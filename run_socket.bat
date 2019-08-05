@@ -1,2 +1,2 @@
-C:\xampp\php\php.exe C:\Users\zaza\Documents\GitHub\test\test.php
+C:\xampp\php\php.exe socket.php
 pause

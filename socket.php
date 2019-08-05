@@ -5,11 +5,14 @@ error_reporting(E_ALL);		//Выводим все ошибки и предупр�
 set_time_limit(0); 			//Время выполнения скрипта ограничено 180 секундами 
 ob_implicit_flush();		//Включаем вывод без буферизации
 
-writeLog(__FILE__, "Starting socket");
+writeLog(__FILE__, "Запуск сокета...");
 $socket = stream_socket_server("tcp://127.0.0.1:" . SOCKET_PORT, $errno, $error); 
 if (!$socket) {
 	die();
-	writeLog(__FILE__, "Socket error: ".$errno);
+	writeLog(__FILE__, "Ошибка инициализации сокета: ".$errno);
+}
+else {
+	writeLog(__FILE__, "Сокет успешно запущен");
 }
 
 $connects = array();
@@ -67,7 +70,7 @@ while (true) {
 	}
 }
 fclose($socket);
-writeLog(__FILE__, "Socket closed: ");
+writeLog(__FILE__, "Сокет закрыт.");
 
 // Функция подготавливает и отправляет данные
 function onMessage($connect, $data) {

@@ -52,25 +52,26 @@ function openSocket() {
     var socket = new WebSocket('ws://127.0.0.1:8888');
 
     socket.onerror = function(error) {
-        debug("connection error. ");
+        console.debug("connection error. ");
         socket.close();
     };
 
     // Обработчик соединения
     socket.onopen = function() {
-        debug("socket opened");
+        console.debug("socket opened");
     };
 
     // Обработчик получения сообщения от сервера
     socket.onmessage = function(e) {
-        debug("server answered: " + e.data);
+        console.debug("server answered: " + e.data);
         try {
             var data = JSON.parse(e.data);
-            console.log(data);
+            console.debug(data);
+            // Добавление сообщения в таблицу
         }
         catch(exc) {
-            debug("bad server answer " + exc.name);
-            debug(exc);
+            console.debug("bad server answer " + exc.name);
+            console.debug(exc);
         }        
     }
 
