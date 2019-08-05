@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <div class="content">
+        <div class="client_1">
+            <p>Отправить сообщение</p>
+            <input type="text" id="message_text" maxlength="число">
+            <input type="button" id="message_send" value="Отправить">
+        </div>
+        <div class="client_2">
+            <p>Сообщения в реальном времени</p>
+            <table id="message_list_socket"></table>
+        </div>
+        <div class="client_3">
+            <p>Все сообщения за последнюю минуту</p>
+            <input type="button" id="message_request_static" value="Получить">
+            <table id="message_list_static"></table>
+        </div>
+    </div>
+
+    <script src="JavaScript/jquery-1.11.0.min.js"></script>
+    <script src="JavaScript/footable.js"></script>
+    <script src="JavaScript/main.js"></script>
+</body>
+</html>
